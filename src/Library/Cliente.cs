@@ -4,6 +4,7 @@ namespace Library
 {
     public class Cliente
     {
-        
+        public string Correo { get; }
+        public int Tel { get; }
     }
 }

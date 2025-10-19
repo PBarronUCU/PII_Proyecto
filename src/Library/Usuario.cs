@@ -5,6 +5,6 @@ namespace Library
 {
     public class Usuario
     {
-        
+        public string Correo { get; }
     }
 }
