@@ -22,6 +22,7 @@ namespace Library
                 Apellido = apellido;
                 Correo = correo;
                 Tel = tel;
+                bd1.AgregarCliente(this);
             }
             else
             {
