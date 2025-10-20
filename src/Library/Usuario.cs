@@ -14,7 +14,7 @@ namespace Library
         public List<Cliente> Cartera = new List<Cliente>();
         public List<Cotizacion> OportunidadesVentas = new List<Cotizacion>();
         public List<IInteracion> ListaInteracciones = new List<IInteracion>();
-        public bool Suspendido { get; }
+        public bool Suspendido { get; private set; }
 
         public Usuario(string nombre, string apellido, string correo)
         {
@@ -47,8 +47,16 @@ namespace Library
                 Console.WriteLine("El correo o telefono ya esta ocupado");
             }
         }
+<<<<<<< HEAD
         
         public void CrearVentas(int tel,string prod,Double precio,DateTime fecha)
+=======
+        public void Suspender()
+        {
+            Suspendido = true;
+        }
+        public void CrearVentas()
+>>>>>>> Rodrigo
         {
             BaseDatos bd1 = BaseDatos.Instance;
             Cliente client = bd1.ClienteSegunTelefono(tel);
