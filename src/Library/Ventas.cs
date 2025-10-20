@@ -11,14 +11,14 @@ namespace Library
     {
         public DateTime FechaVenta {get;}
         public Usuario Usuario { get; }
-        public int ClienteTel { get;}
+        public Cliente Cliente { get;}
         public string Producto { get;}
         public double Precio { get;}
 
-        public Ventas(Usuario usuario, int clienteTel, string producto, double precio, DateTime diaVenta)
+        public Ventas(Usuario usuario, Cliente cliente, string producto, double precio, DateTime diaVenta)
         {
             Usuario = usuario;
-            ClienteTel = clienteTel;
+            Cliente = cliente;
             Producto = producto;
             Precio = precio;
             FechaVenta = diaVenta;

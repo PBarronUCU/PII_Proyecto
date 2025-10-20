@@ -33,7 +33,7 @@ namespace Library
             }
         }
 
-        public void AgregarCliente(String name, String apell, int tel, String correo)
+        public void CrearCliente(String name, String apell, int tel, String correo)
         {
             BaseDatos bd1 = BaseDatos.Instance; 
             //Inecesario, pero por si acaso para no encontrarme errores al agregarlo a la cartera
@@ -51,11 +51,12 @@ namespace Library
         public void CrearVentas(int tel,string prod,Double precio,DateTime fecha)
         {
             BaseDatos bd1 = BaseDatos.Instance;
-            if (!bd1.ExisteVenta(this, tel, prod, precio, fecha))
+            Cliente client = bd1.ClienteSegunTelefono(tel);
+            if (!bd1.ExisteVenta(this,client, prod, precio, fecha))
             {
                 if (VerificarTelCartera(tel))
                 {
-                    Ventas instancia3 = new Ventas(this,tel,prod,precio,fecha);
+                    Ventas instancia3 = new Ventas(this,client,prod,precio,fecha);
                     bd1.AgregarVenta(instancia3);
                 }
                 else
@@ -84,11 +85,26 @@ namespace Library
             return resultado;
         }
 
+        public void EliminarTelCartera(int tel)
+        {
+            foreach (Cliente cliente in Cartera)
+            {
+                if (cliente.Tel == tel)
+                {
+                    Cartera.Remove(cliente);
+                }
+            }
+        }
+        
+        
+
         public void CrearCoti(int telcliente, DateTime fecha, Double valor, String imp)
         {
+            BaseDatos bd1 = BaseDatos.Instance;
+            Cliente cliente = bd1.ClienteSegunTelefono(telcliente);
             if (VerificarTelCartera(telcliente))
             {
-                Cotizacion instancia2 = new Cotizacion(this,telcliente,fecha, valor, imp);
+                Cotizacion instancia2 = new Cotizacion(this,cliente,fecha, valor, imp);
                 OportunidadesVentas.Add(instancia2);
             }
             else

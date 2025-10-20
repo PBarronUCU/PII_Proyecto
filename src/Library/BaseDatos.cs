@@ -88,12 +88,12 @@ namespace Library
             }
         }
 
-        public bool ExisteVenta(Usuario user, int tel, string producto, double precio, DateTime fecha)
+        public bool ExisteVenta(Usuario user, Cliente cliente, string producto, double precio, DateTime fecha)
         {
             bool resultado = false;
             foreach (Ventas venta in ListaVentas)
             {
-                if (venta.Usuario==user & venta.ClienteTel==tel & venta.Producto==producto & venta.Precio==precio & venta.FechaVenta==fecha)
+                if (venta.Usuario==user & venta.Cliente==cliente & venta.Producto==producto & venta.Precio==precio & venta.FechaVenta==fecha)
                 {
                     resultado =  true;
                 }
@@ -105,10 +105,10 @@ namespace Library
         {
             Usuario usu = venta.Usuario;
             DateTime fecha = venta.FechaVenta;
-            int tel = venta.ClienteTel;
+            Cliente cliente = venta.Cliente;
             string producto = venta.Producto;
             double precio = venta.Precio;
-            if (!ExisteVenta(usu, tel, producto, precio, fecha))
+            if (!ExisteVenta(usu,cliente, producto, precio, fecha))
             {
                 ListaVentas.Add(venta);
             }
@@ -125,5 +125,20 @@ namespace Library
             Cliente cliente = ListaCliente.Find(x => x.Tel == telefono);
             return cliente;
         }
+
+        public void EliminarCliente(int telefono)
+        {
+            Cliente cliente = ClienteSegunTelefono(telefono);
+            ListaCliente.Remove(cliente);
+            foreach (Usuario usu in ListaUsuario)
+            {
+                if (usu.VerificarTelCartera(telefono))
+                {
+                    usu.EliminarTelCartera(telefono);
+                }
+            }
+        }
+
+
     }
 }
