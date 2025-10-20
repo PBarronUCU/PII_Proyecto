@@ -132,5 +132,11 @@ namespace Library
             client.FechaNac =  fecha;
             
         }
+
+        public void AgregarInteracion(IInteracion interacion)
+        {
+            ListaInteracciones.Add(interacion);
+        }
+        
     }
 } 
