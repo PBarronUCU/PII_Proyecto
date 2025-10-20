@@ -8,8 +8,7 @@ namespace Library
     public class Admin
     {
         public string Nombre { get; set; }
-
-        // 👇 Constructor: se ejecuta al crear un nuevo Admin
+        
         public Admin(string nombre)
         {
             Nombre = nombre;
