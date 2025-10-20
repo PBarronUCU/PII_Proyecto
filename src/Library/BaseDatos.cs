@@ -93,7 +93,7 @@ namespace Library
             bool resultado = false;
             foreach (Ventas venta in ListaVentas)
             {
-                if (venta.Usuario==user && venta.ClienteTel==tel && venta.Producto==producto && venta.Precio==precio && venta.Dia_venta==fecha)
+                if (venta.Usuario==user && venta.ClienteTel==tel && venta.Producto==producto && venta.Precio==precio && venta.FechaVenta==fecha)
                 {
                     resultado =  true;
                 }
@@ -104,7 +104,7 @@ namespace Library
         public void AgregarVenta(Ventas venta)
         {
             Usuario usu = venta.Usuario;
-            DateTime fecha = venta.Dia_venta;
+            DateTime fecha = venta.FechaVenta;
             int tel = venta.ClienteTel;
             string producto = venta.Producto;
             double precio = venta.Precio;

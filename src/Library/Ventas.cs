@@ -9,11 +9,11 @@ namespace Library
 {
     public class Ventas
     {
-        public DateTime Dia_venta { get; set; }
-        public Usuario Usuario { get; set; }
-        public int ClienteTel { get; set; }
-        public string Producto { get; set; }
-        public double Precio { get; set; }
+        public DateTime FechaVenta {get;}
+        public Usuario Usuario { get; }
+        public int ClienteTel { get;}
+        public string Producto { get;}
+        public double Precio { get;}
 
         public Ventas(Usuario usuario, int clienteTel, string producto, double precio, DateTime diaVenta)
         {
@@ -21,7 +21,7 @@ namespace Library
             ClienteTel = clienteTel;
             Producto = producto;
             Precio = precio;
-            Dia_venta = diaVenta;
+            FechaVenta = diaVenta;
         }
     }
 }

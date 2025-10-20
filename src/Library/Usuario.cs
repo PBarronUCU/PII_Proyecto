@@ -48,9 +48,26 @@ namespace Library
             }
         }
         
-        public void CrearVentas()
+        public void CrearVentas(int tel,string prod,Double precio,DateTime fecha)
         {
-            //Falta Implementar Ventas
+            BaseDatos bd1 = BaseDatos.Instance;
+            if (!bd1.ExisteVenta(this, tel, prod, precio, fecha))
+            {
+                if (VerificarTelCartera(tel))
+                {
+                    Ventas instancia3 = new Ventas(this,tel,prod,precio,fecha);
+                    bd1.AgregarVenta(instancia3);
+                }
+                else
+                {
+                    Console.WriteLine("Telefono no encontrado");
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine("Venta repetida");
+            }
         }
         
         //Vere si la agrego al UML
