@@ -88,17 +88,30 @@ namespace Library
             }
         }
 
-        public void ExisteVenta(Usuario user, int tel, string producto, double precio, DateTime fecha)
+        public bool ExisteVenta(Usuario user, int tel, string producto, double precio, DateTime fecha)
         {
             bool resultado = false;
             foreach (Ventas venta in ListaVentas)
             {
-                if (venta.Usuario==user && venta.ClienteTel==tel && venta.Producto==producto && venta.Precio==precio && venta.FechaVenta==fecha)
+                if (venta.Usuario==user && venta.ClienteTel==tel && venta.Producto==producto && venta.Precio==precio && venta.Dia_venta==fecha)
                 {
-                    
+                    resultado =  true;
                 }
             }
+            return resultado;
         }
-        
+
+        public void AgregarVenta(Ventas venta)
+        {
+            Usuario usu = venta.Usuario;
+            DateTime fecha = venta.Dia_venta;
+            int tel = venta.ClienteTel;
+            string producto = venta.Producto;
+            double precio = venta.Precio;
+            if (!ExisteVenta(usu, tel, producto, precio, fecha))
+            {
+                ListaVentas.Add(venta);
+            }
+        }
     }
 }
