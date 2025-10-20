@@ -13,8 +13,8 @@ namespace Library
         public string Correo { get; }
         public List<Cliente> Cartera = new List<Cliente>();
         public List<Cotizacion> OportunidadesVentas = new List<Cotizacion>();
-        public List<IInteracion> ListaInteracciones = new List<IInteracion>();
-        public bool Suspendido { get; private set; }
+        public List<IInteracion> ListaInteracciones = new List<IInteracion>();//Leimos la Letra siempre desde el punto de vista del Usuario=Vendedor.
+        public bool Suspendido { get; private set; }                        
 
         public Usuario(string nombre, string apellido, string correo)
         {
@@ -77,7 +77,6 @@ namespace Library
             }
         }
         
-        //Vere si la agrego al UML
         public bool VerificarTelCartera(int tel)
         {
             bool resultado = false;
