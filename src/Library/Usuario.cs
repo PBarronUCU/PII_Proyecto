@@ -47,16 +47,16 @@ namespace Library
                 Console.WriteLine("El correo o telefono ya esta ocupado");
             }
         }
-<<<<<<< HEAD
+
         
         public void CrearVentas(int tel,string prod,Double precio,DateTime fecha)
-=======
+
         public void Suspender()
         {
             Suspendido = true;
         }
         public void CrearVentas()
->>>>>>> Rodrigo
+
         {
             BaseDatos bd1 = BaseDatos.Instance;
             Cliente client = bd1.ClienteSegunTelefono(tel);
