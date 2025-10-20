@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Library
@@ -84,6 +85,18 @@ namespace Library
             if (!ExisteCorreo(correo) && !ExisteTel(tel))
             {
                 ListaCliente.Add(client);
+            }
+        }
+
+        public void ExisteVenta(Usuario user, int tel, string producto, double precio, DateTime fecha)
+        {
+            bool resultado = false;
+            foreach (Ventas venta in ListaVentas)
+            {
+                if (venta.Usuario==user && venta.ClienteTel==tel && venta.Producto==producto && venta.Precio==precio && venta.FechaVenta==fecha)
+                {
+                    
+                }
             }
         }
         

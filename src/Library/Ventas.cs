@@ -1,3 +1,5 @@
+using System;
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
 
@@ -9,6 +11,7 @@ namespace Library
         public int ClienteTel { get; set; }
         public string Producto { get; set; }
         public double Precio { get; set; }
+        public DateTime FechaVenta { get; set; }
 
         public Ventas(Usuario usuario, int clienteTel, string producto, double precio)
         {
