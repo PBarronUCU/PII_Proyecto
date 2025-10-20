@@ -122,22 +122,14 @@ namespace Library
         /// <summary>
         /// El telefono es para identificar el Cliente, NO para cambiarlo.
         /// </summary>
-        public void ModificarCliente(string nombre,string apell, int tel, string genero,DateTime fecha )
+        public void ModificarCliente(string nombre,string apell, int tel, Genero genero,DateTime fecha )
         {
-            int i = 0;
-            bool encontrado = false;
-            Cliente client;
             BaseDatos bd1 = BaseDatos.Instance;
-            while (i < bd1.ListaCliente.Count & !encontrado)
-            {
-                if (bd1.ListaCliente[i].Tel == tel) //primero hago metodos de base de datos
-                {
-                    Cliente cliente = bd1.ListaCliente[i];
-                    encontrado = true;
-                }
-
-                i++;
-            }
+            Cliente client =  bd1.ClienteSegunTelefono(tel);
+            client.Nombre = nombre;
+            client.Apellido = apell;
+            client.Genero = genero;
+            client.FechaNac =  fecha;
             
         }
     }
