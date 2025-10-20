@@ -10,5 +10,6 @@ namespace Library
         public string Tema { get; set; }
         public string Notas { get; set; }
         public int TelCliente { get; }
+        public UsuarioOCliente Remitente {get; set;}
     }
 }

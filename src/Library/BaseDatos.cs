@@ -139,6 +139,12 @@ namespace Library
             }
         }
 
+        public void EliminarUsuario(string correo)
+        {
+            Usuario usu = UsuarioSegunCorreo(correo);
+            ListaUsuario.Remove(usu);
+        }
+
 
     }
 }
