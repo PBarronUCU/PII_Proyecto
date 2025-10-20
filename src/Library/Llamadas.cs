@@ -10,5 +10,14 @@ namespace Library
         public string Tema { get; set; }
         public string Notas { get; set; }
         public int TelCliente { get; }
+
+        public Llamadas(UsuarioOCliente remitente,DateTime fecha, string tema, string notas, int telCliente)
+        {
+            Fecha = fecha;
+            Tema = tema;
+            Notas = notas;
+            TelCliente = telCliente;
+            Remitente = remitente
+        }
     }
 }

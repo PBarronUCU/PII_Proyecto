@@ -10,5 +10,13 @@ namespace Library
         public string Tema { get; set; }
         public string Notas { get; set; }
         public int TelCliente { get; }
+
+        public Reunion(DateTime fecha, string tema, string notas, int telcliente)
+        {
+            Fecha = fecha;
+            Tema = tema;
+            Notas = notas;
+            TelCliente = telcliente;
+        }
     }
 }
