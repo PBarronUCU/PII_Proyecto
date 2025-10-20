@@ -10,13 +10,13 @@ namespace Library
         public string Apellido { get; set; }
         public string Correo { get; }
         public int Tel { get; }
-        public string Genero { get; }
+        public string Genero { get; set; }
         public DateTime FechaNac { get; set; }
 
         public Cliente(string nombre, string apellido, string correo, int tel)
         {
             BaseDatos bd1 = BaseDatos.Instance;
-            if (!bd1.ExisteCorreo(correo) && !bd1.ExisteTel(tel))
+            if (!bd1.ExisteCorreo(correo) & !bd1.ExisteTel(tel))
             {
                 Nombre = nombre;
                 Apellido = apellido;

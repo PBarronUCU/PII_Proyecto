@@ -37,10 +37,10 @@ namespace Library
         {
             BaseDatos bd1 = BaseDatos.Instance; 
             //Inecesario, pero por si acaso para no encontrarme errores al agregarlo a la cartera
-            if (!bd1.ExisteCorreo(correo) && !bd1.ExisteTel(tel))
+            if (!bd1.ExisteCorreo(correo) & !bd1.ExisteTel(tel))
             {
-                Cliente instanca1 = new Cliente(name, apell, correo, tel);
-                Cartera.Add(instanca1);
+                Cliente instancia1 = new Cliente(name, apell, correo, tel);
+                Cartera.Add(instancia1);
             }
             else
             {
@@ -96,7 +96,27 @@ namespace Library
                 Console.WriteLine("Telefono no encontrado");
             }
         }
-        
-        
+
+        /// <summary>
+        /// El telefono es para identificar el Cliente, NO para cambiarlo.
+        /// </summary>
+        public void ModificarCliente(string nombre,string apell, int tel, string genero,DateTime fecha )
+        {
+            int i = 0;
+            bool encontrado = false;
+            Cliente client;
+            BaseDatos bd1 = BaseDatos.Instance;
+            while (i < bd1.ListaCliente.Count & !encontrado)
+            {
+                if (bd1.ListaCliente[i].Tel == tel) //primero hago metodos de base de datos
+                {
+                    Cliente cliente = bd1.ListaCliente[i];
+                    encontrado = true;
+                }
+
+                i++;
+            }
+            
+        }
     }
 } 

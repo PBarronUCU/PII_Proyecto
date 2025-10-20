@@ -82,7 +82,7 @@ namespace Library
         {
             string correo = client.Correo;
             int tel = client.Tel;
-            if (!ExisteCorreo(correo) && !ExisteTel(tel))
+            if (!ExisteCorreo(correo) & !ExisteTel(tel))
             {
                 ListaCliente.Add(client);
             }
@@ -93,7 +93,7 @@ namespace Library
             bool resultado = false;
             foreach (Ventas venta in ListaVentas)
             {
-                if (venta.Usuario==user && venta.ClienteTel==tel && venta.Producto==producto && venta.Precio==precio && venta.FechaVenta==fecha)
+                if (venta.Usuario==user & venta.ClienteTel==tel & venta.Producto==producto & venta.Precio==precio & venta.FechaVenta==fecha)
                 {
                     resultado =  true;
                 }
@@ -112,6 +112,18 @@ namespace Library
             {
                 ListaVentas.Add(venta);
             }
+        }
+
+        public Usuario UsuarioSegunCorreo(string correo)
+        {
+            Usuario usu = ListaUsuario.Find(x => x.Correo == correo);
+            return usu;
+        }
+
+        public Cliente ClienteSegunTelefono(int telefono)
+        {
+            Cliente cliente = ListaCliente.Find(x => x.Tel == telefono);
+            return cliente;
         }
     }
 }
