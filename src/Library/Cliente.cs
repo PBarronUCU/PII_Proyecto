@@ -10,8 +10,11 @@ namespace Library
         public string Apellido { get; set; }
         public string Correo { get; }
         public int Tel { get; }
-        public string Genero { get; set; }
+        public Genero Genero { get; set; }
         public DateTime FechaNac { get; set; }
+        
+        
+        
 
         public Cliente(string nombre, string apellido, string correo, int tel)
         {
