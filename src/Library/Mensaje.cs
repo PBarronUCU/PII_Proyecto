@@ -1,5 +1,4 @@
 using System;
-using System.Data;
 
 namespace Library
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
@@ -11,14 +10,14 @@ namespace Library
         public string Tema { get; set; }
         public string Notas { get; set; }
         public int TelCliente { get; }
-
-        public Mensaje(DateTime fecha, string tema, string nota, int telCliente)
+        public UsuarioOCliente Remitente {get; set;}
+        public Mensaje (UsuarioOCliente remitente, string tema, string notas, DateTime fecha, int telCliente)
         {
-            Fecha = fecha;
+            Remitente = remitente;
             Tema = tema;
-            Notas = nota;
+            Notas = notas;
+            Fecha = fecha;
             TelCliente = telCliente;
         }
-        
     }
 }

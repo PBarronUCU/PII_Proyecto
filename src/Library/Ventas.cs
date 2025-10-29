@@ -9,19 +9,19 @@ namespace Library
 {
     public class Ventas
     {
-        public DateTime Dia_venta { get; set; }
-        public Usuario Usuario { get; set; }
-        public int ClienteTel { get; set; }
-        public string Producto { get; set; }
-        public double Precio { get; set; }
+        public DateTime FechaVenta {get;}
+        public Usuario Usuario { get; }
+        public Cliente Cliente { get;}
+        public string Producto { get;}
+        public double Precio { get;}
 
-        public Ventas(Usuario usuario, int clienteTel, string producto, double precio, DateTime diaVenta)
+        public Ventas(Usuario usuario, Cliente cliente, string producto, double precio, DateTime diaVenta)
         {
             Usuario = usuario;
-            ClienteTel = clienteTel;
+            Cliente = cliente;
             Producto = producto;
             Precio = precio;
-            Dia_venta = diaVenta;
+            FechaVenta = diaVenta;
         }
     }
 }
